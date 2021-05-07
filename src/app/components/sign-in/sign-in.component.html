@@ -1,0 +1,20 @@
+<section id="signIn">
+
+    <div class="container">
+        <form [formGroup]="signIn" (ngSubmit)="signIn.valid&&FormData()">
+            <div class="form w-50 m-auto">
+
+                <input [class.is-valid]="signIn.get('email').status=='VALID'" formControlName="email" type="email" placeholder="Enter Email" class="form-control my-3">
+                <div *ngIf="signIn.get('email').errors&&signIn.get('email').touched" class="alert alert-danger" role="alert">
+                    email is required
+                </div>
+
+                <input [class.is-valid]="signIn.get('password').status=='VALID'" formControlName="password" type="password" placeholder="Enter password" class="form-control my-3">
+                <div *ngIf="signIn.get('password').errors&&signIn.get('password').touched" class="alert alert-danger" role="alert">
+                    password is required
+                </div>
+                <button class="btn btn-info w-100">Sign In</button>
+            </div>
+        </form>
+    </div>
+</section>
